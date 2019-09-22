@@ -1,7 +1,6 @@
 package pl.mdemski.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -14,27 +13,23 @@ public class User extends AbstractEntity {
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "company_name")
-    @ManyToMany
-    @JoinTable(name = "users_companies",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "company_id")
-    )
-    private List<Company> companies;
+    @ManyToOne
+    private Company company;
 
 
-    public User(String email, String password, String firstName, List<Company> companies) {
+    public User(String email, String password, String firstName, Company company) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
-        this.companies = companies;
+        this.company = company;
     }
 
-    public List<Company> getCompanies() {
-        return companies;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setCompanies(List<Company> companies) {
-        this.companies = companies;
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     public User() {
