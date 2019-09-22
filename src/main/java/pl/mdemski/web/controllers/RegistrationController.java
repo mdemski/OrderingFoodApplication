@@ -45,4 +45,9 @@ public class RegistrationController {
         return "redirect:/login";
     }
 
+    @GetMapping("/regulamin")
+    public String prepareStatutePage(){
+        return "redirect:/statute";
+    }
+
 }
