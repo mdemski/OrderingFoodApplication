@@ -25,9 +25,4 @@ public class HomePageController {
         model.addAttribute("userName", userName.getFirstName());
         return "index";
     }
-
-    @GetMapping("/regulamin")
-    public String prepareStatutePage(){
-        return "statute";
-    }
 }
