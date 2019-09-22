@@ -12,7 +12,6 @@ public class User extends AbstractEntity {
     private String password;
     @Column(name = "first_name")
     private String firstName;
-    @Column(name = "company_name")
     @ManyToOne
     private Company company;
 
