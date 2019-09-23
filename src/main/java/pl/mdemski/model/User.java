@@ -13,6 +13,7 @@ public class User extends AbstractEntity {
     @Column(name = "first_name")
     private String firstName;
     @ManyToOne
+    @JoinColumn(name = "company_id")
     private Company company;
 
 
