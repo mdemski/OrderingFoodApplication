@@ -7,23 +7,30 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.mdemski.dto.CompanyDTO;
 import pl.mdemski.dto.RegistrationFormDTO;
+import pl.mdemski.services.CompanyService;
 import pl.mdemski.services.RegistrationService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/rejestracja")
 public class RegistrationController {
 
     private RegistrationService registrationService;
+    private CompanyService companyService;
 
-    public RegistrationController(RegistrationService registrationService) {
+    public RegistrationController(RegistrationService registrationService, CompanyService companyService) {
         this.registrationService = registrationService;
+        this.companyService = companyService;
     }
 
     @GetMapping
     public String prepareRegistrationPage(Model model) {
+        List<CompanyDTO> companyList = companyService.getAllCompanies();
+        model.addAttribute("companies", companyList);
         model.addAttribute("data", new RegistrationFormDTO());
         return "registration";
     }
