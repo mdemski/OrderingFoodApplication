@@ -2,6 +2,7 @@ package pl.mdemski.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "companies")
@@ -95,5 +96,26 @@ public class Company extends AbstractEntity {
 
     public void setContactLastName(String contactLastName) {
         this.contactLastName = contactLastName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Company company = (Company) o;
+        return Objects.equals(name, company.name) &&
+                Objects.equals(city, company.city) &&
+                Objects.equals(address, company.address) &&
+                Objects.equals(postCode, company.postCode) &&
+                Objects.equals(nip, company.nip) &&
+                Objects.equals(contactFirstName, company.contactFirstName) &&
+                Objects.equals(contactLastName, company.contactLastName) &&
+                Objects.equals(users, company.users);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), name, city, address, postCode, nip, contactFirstName, contactLastName, users);
     }
 }
