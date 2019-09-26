@@ -1,6 +1,7 @@
 package pl.mdemski.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "users")
@@ -57,5 +58,22 @@ public class User extends AbstractEntity {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        User user = (User) o;
+        return Objects.equals(email, user.email) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(firstName, user.firstName) &&
+                Objects.equals(company, user.company);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), email, password, firstName, company);
     }
 }
