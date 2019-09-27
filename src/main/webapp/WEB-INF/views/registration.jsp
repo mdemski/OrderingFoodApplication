@@ -26,7 +26,7 @@
         <div class="card-body">
 
             <form:form class="text-center border border-light p-5" method="post" modelAttribute="data">
-
+                <form:errors path="*" />
                 <p class="h4 mb-4">Zarejestruj się</p>
 
                 <!-- Użytkownik -->
