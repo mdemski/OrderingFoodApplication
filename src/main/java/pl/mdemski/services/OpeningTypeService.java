@@ -3,13 +3,17 @@ package pl.mdemski.services;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 import pl.mdemski.dto.OpeningTypeDTO;
 import pl.mdemski.model.OpeningType;
 import pl.mdemski.repositories.OpeningTypeRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
+@Transactional
 public class OpeningTypeService {
 
     private OpeningTypeRepository openingTypeRepository;
