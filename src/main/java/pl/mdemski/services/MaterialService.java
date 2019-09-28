@@ -3,13 +3,17 @@ package pl.mdemski.services;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 import pl.mdemski.dto.MaterialDTO;
 import pl.mdemski.model.Material;
 import pl.mdemski.repositories.MaterialRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
+@Transactional
 public class MaterialService {
 
     private MaterialRepository materialRepository;
