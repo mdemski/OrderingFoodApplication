@@ -31,16 +31,6 @@
     </button>
     <c:if test="${userName != null}">
         <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Dzisiejsze menu</a>
-                        <%--TODO link do strony z menu--%>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Kontakt do baby</a>
-                        <%--TODO link do strony z kontem--%>
-                </li>
-            </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
                 <li class="nav-item">
                     <a class="nav-link waves-effect waves-light">1
