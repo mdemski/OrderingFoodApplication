@@ -20,12 +20,13 @@ public class FlashingService {
     private FlashingRepository flashingRepository;
     private MaterialColorRepository materialColorRepository;
 
-    public FlashingService(FlashingRepository flashingRepository) {
+    public FlashingService(FlashingRepository flashingRepository, MaterialColorRepository materialColorRepository) {
         this.flashingRepository = flashingRepository;
+        this.materialColorRepository = materialColorRepository;
     }
 
     public void addFlashing(){
-        MaterialColor materialColor = materialColorRepository.findOne(1L);
+        MaterialColor materialColor = materialColorRepository.findById(1L);
         Flashing flashing = new Flashing("U", materialColor, 1180, 780);
         flashingRepository.save(flashing);
     }
