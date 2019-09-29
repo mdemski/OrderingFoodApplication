@@ -6,6 +6,6 @@ import pl.mdemski.model.MaterialColor;
 
 public interface MaterialColorRepository<T extends AbstractEntity, L extends Number> extends JpaRepository<MaterialColor, Long> {
 
-    MaterialColor findOne(Long id);
+    MaterialColor findById(Long id);
 
 }
