@@ -453,7 +453,7 @@
             </li>
         </form:form>
         <form:form method="post" modelAttribute="windowDTO" action="/konfigurator/okna-dachowe/krok-5">
-            <li class="step">
+            <li class="step active">
                 <div data-step-label="Pakiet szybowy" class="step-title waves-effect waves-dark">Krok 5</div>
 
                 <div class="container">
