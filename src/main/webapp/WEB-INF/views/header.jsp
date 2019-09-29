@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:url var="mainUrl" value="/"/>
 <html>
 <head>
     <meta charset="utf-8">
@@ -15,13 +16,35 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="${mainUrl}resources/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="${mainUrl}resources/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="${mainUrl}resources/css/style.css" rel="stylesheet">
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="${mainUrl}resources/js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="${mainUrl}resources/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="${mainUrl}resources/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="${mainUrl}resources/js/mdb.min.js"></script>
+
+    <!-- Stepper CSS -->
+    <link href="${mainUrl}resources/css/addons-pro/steppers.css" rel="stylesheet">
+    <!-- Stepper CSS - minified-->
+    <link href="${mainUrl}resources/css/addons-pro/steppers.min.css" rel="stylesheet">
+
+    <!-- Stepper JavaScript -->
+    <script type="text/javascript" src="${mainUrl}resources/js/addons-pro/stepper.js"></script>
+    <!-- Stepper JavaScript - minified -->
+    <script type="text/javascript" src="${mainUrl}resources/js/addons-pro/stepper.min.js"></script>
+
 </head>
 <body>
+<header>
 <!--Navbar -->
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color">
     <a href='<c:url value="/"/>' class="navbar-brand"><img src="https://www.okpol.pl/wp-content/uploads/2015/10/2015-logo-okpol-pl-217-50.png" alt="OKPOL"></a>
@@ -46,15 +69,4 @@
     </c:if>
 </nav>
 <!--/.Navbar -->
-
-<!-- SCRIPTS -->
-<!-- JQuery -->
-<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="js/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="js/mdb.min.js"></script>
-</body>
-</html>
+</header>
