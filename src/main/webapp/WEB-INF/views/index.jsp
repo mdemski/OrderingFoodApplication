@@ -8,11 +8,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Strona główna</title>
-</head>
-<body>
+<main>
 <section class="text-center my-5">
 
     <!-- Section heading -->
@@ -95,5 +91,6 @@
     </div>
     <!-- Grid row -->
 </section>
-</body>
-</html>
+</main>
+
+<jsp:include page="footer.jsp"/>
