@@ -1,20 +1,23 @@
 package pl.mdemski.model;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "flashings")
 public class Flashing extends AbstractEntity {
 
     private String type;
-    private String color; //TODO ta informacja powinna być ustawiana z MaterialColor
+    @ManyToOne
+    private MaterialColor colors;
     private double height;
     private double width;
 
-    public Flashing(String type, String color, double height, double width) {
+    public Flashing(String type, MaterialColor colors, double height, double width) {
         this.type = type;
-        this.color = color;
+        this.colors = colors;
         this.height = height;
         this.width = width;
     }
@@ -30,12 +33,12 @@ public class Flashing extends AbstractEntity {
         this.type = type;
     }
 
-    public String getColor() {
-        return color;
+    public MaterialColor getColors() {
+        return colors;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setColors(MaterialColor colors) {
+        this.colors = colors;
     }
 
     public double getHeight() {
