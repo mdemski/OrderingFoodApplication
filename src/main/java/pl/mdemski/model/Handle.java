@@ -1,5 +1,10 @@
 package pl.mdemski.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "handles")
 public class Handle extends AbstractEntity {
 
     private String color;
