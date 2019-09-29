@@ -1,7 +1,6 @@
 package pl.mdemski.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "material_color")
