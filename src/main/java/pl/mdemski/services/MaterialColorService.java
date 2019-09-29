@@ -6,6 +6,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import pl.mdemski.dto.MaterialColorDTO;
 import pl.mdemski.model.MaterialColor;
+import pl.mdemski.repositories.MaterialColorRepository;
 import pl.mdemski.repositories.MaterialRepository;
 
 import javax.transaction.Transactional;
@@ -15,19 +16,19 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 public class MaterialColorService {
-    private MaterialRepository materialRepository;
+    private MaterialColorRepository materialColorRepository;
 
-    public MaterialColorService(MaterialRepository materialRepository) {
-        this.materialRepository = materialRepository;
+    public MaterialColorService(MaterialColorRepository materialColorRepository) {
+        this.materialColorRepository = materialColorRepository;
     }
 
     public void addMaterialColor(){
         MaterialColor materialColor = new MaterialColor("RAL7022");
-        materialRepository.save(materialColor);
+        materialColorRepository.save(materialColor);
     }
 
     public List<MaterialColorDTO> getAllMaterialColors(){
-        Page<MaterialColor> materialColor = materialRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.DESC, "id")));
+        Page<MaterialColor> materialColor = materialColorRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.DESC, "id")));
         List<MaterialColor> content = materialColor.getContent();
         return content.stream().map(source -> {
             MaterialColorDTO dto = new MaterialColorDTO();
@@ -35,6 +36,10 @@ public class MaterialColorService {
             dto.setRalName(source.getRAL());
             return dto;
         }).collect(Collectors.toList());
+    }
+
+    public MaterialColor findOneById(Long id){
+        return materialColorRepository.findOne(id);
     }
 
 }
