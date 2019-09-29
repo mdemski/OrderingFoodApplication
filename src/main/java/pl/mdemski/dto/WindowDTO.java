@@ -4,15 +4,16 @@ import pl.mdemski.model.Flashing;
 
 public class WindowDTO {
     private Long id;
-    private String mountingAngle;
-    private String material;
-    private String openingType;
-    private String dimensions;
-    private String glazingType;
-    private String materialColor;
-    private String handle;
-    private String flashingName;
-    private String ventilator;
+    private MountingAngleDTO mountingAngle;
+    private MaterialDTO material;
+    private OpeningTypeDTO openingType;
+    private double height;
+    private double width;
+    private GlazingTypeDTO glazingType;
+    private MaterialColorDTO materialColor;
+    private HandleDTO handle;
+    private FlashingDTO flashingName;
+    private VentilatorDTO ventilator;
 
     public Long getId() {
         return id;
@@ -22,75 +23,83 @@ public class WindowDTO {
         this.id = id;
     }
 
-    public String getMountingAngle() {
+    public MountingAngleDTO getMountingAngle() {
         return mountingAngle;
     }
 
-    public void setMountingAngle(String mountingAngle) {
+    public void setMountingAngle(MountingAngleDTO mountingAngle) {
         this.mountingAngle = mountingAngle;
     }
 
-    public String getMaterial() {
+    public MaterialDTO getMaterial() {
         return material;
     }
 
-    public void setMaterial(String material) {
+    public void setMaterial(MaterialDTO material) {
         this.material = material;
     }
 
-    public String getOpeningType() {
+    public OpeningTypeDTO getOpeningType() {
         return openingType;
     }
 
-    public void setOpeningType(String openingType) {
+    public void setOpeningType(OpeningTypeDTO openingType) {
         this.openingType = openingType;
     }
 
-    public String getDimensions() {
-        return dimensions;
+    public double getHeight() {
+        return height;
     }
 
-    public void setDimensions(String dimensions) {
-        this.dimensions = dimensions;
+    public void setHeight(double height) {
+        this.height = height;
     }
 
-    public String getGlazingType() {
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public GlazingTypeDTO getGlazingType() {
         return glazingType;
     }
 
-    public void setGlazingType(String glazingType) {
+    public void setGlazingType(GlazingTypeDTO glazingType) {
         this.glazingType = glazingType;
     }
 
-    public String getMaterialColor() {
+    public MaterialColorDTO getMaterialColor() {
         return materialColor;
     }
 
-    public void setMaterialColor(String materialColor) {
+    public void setMaterialColor(MaterialColorDTO materialColor) {
         this.materialColor = materialColor;
     }
 
-    public String getHandle() {
+    public HandleDTO getHandle() {
         return handle;
     }
 
-    public void setHandle(String handle) {
+    public void setHandle(HandleDTO handle) {
         this.handle = handle;
     }
 
-    public String getFlashingName() {
+    public FlashingDTO getFlashingName() {
         return flashingName;
     }
 
-    public void setFlashingName(String flashingName) {
+    public void setFlashingName(FlashingDTO flashingName) {
         this.flashingName = flashingName;
     }
 
-    public String getVentilator() {
+    public VentilatorDTO getVentilator() {
         return ventilator;
     }
 
-    public void setVentilator(String ventilator) {
+    public void setVentilator(VentilatorDTO ventilator) {
         this.ventilator = ventilator;
     }
 }
