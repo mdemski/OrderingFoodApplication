@@ -39,7 +39,7 @@ public class MaterialColorService {
     }
 
     public MaterialColor findOneById(Long id){
-        return materialColorRepository.findOne(id);
+        return materialColorRepository.findById(id);
     }
 
 }
