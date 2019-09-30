@@ -5,14 +5,6 @@ public class MountingAngleDTO {
     private Long id;
     private String name;
 
-    public MountingAngleDTO(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public MountingAngleDTO() {
-    }
-
     public Long getId() {
         return id;
     }
