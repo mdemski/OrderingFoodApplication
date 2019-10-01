@@ -34,7 +34,7 @@ public class OpeningTypeService {
     }
 
     public List<OpeningTypeDTO> getAllOpeningTypes(){
-        Page<OpeningType> openingTypes = openingTypeRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.DESC, "id")));
+        Page<OpeningType> openingTypes = openingTypeRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.ASC, "id")));
         List<OpeningType> content = openingTypes.getContent();
         return content.stream().map(source -> {
             OpeningTypeDTO dto = new OpeningTypeDTO();
@@ -42,5 +42,13 @@ public class OpeningTypeService {
             dto.setName(source.getName());
             return dto;
         }).collect(Collectors.toList());
+    }
+
+    public OpeningTypeDTO getById(Long openingTypeId) {
+        OpeningType openingType = openingTypeRepository.findById(openingTypeId);
+        OpeningTypeDTO openingTypeDTO = new OpeningTypeDTO();
+        openingTypeDTO.setId(openingType.getId());
+        openingTypeDTO.setName(openingType.getName());
+        return openingTypeDTO;
     }
 }
