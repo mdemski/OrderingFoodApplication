@@ -1,19 +1,24 @@
 package pl.mdemski.dto;
 
-import pl.mdemski.model.Flashing;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 public class WindowDTO {
     private Long id;
-    private MountingAngleDTO mountingAngle;
-    private MaterialDTO material;
-    private OpeningTypeDTO openingType;
-    private double height;
-    private double width;
-    private GlazingTypeDTO glazingType;
-    private MaterialColorDTO materialColor;
-    private HandleDTO handle;
-    private FlashingDTO flashingName;
-    private VentilatorDTO ventilator;
+    private Long mountingAngleId;
+    private Long materialId;
+    private Long openingTypeId;
+    @Min(value = 98, message = "Nie zrobimy tak niskiego okna")
+    @Max(value = 160, message = "Nie zrobimy tak wysokiego okna")
+    private int height;
+    @Min(value = 47, message = "Nie zrobimy tak wąskiego okna")
+    @Max(value = 134, message = "Nie zrobimy tak szerokiego okna")
+    private int width;
+    private Long glazingTypeId;
+    private Long materialColorId;
+    private Long handleId;
+    private Long flashingNameId;
+    private Long ventilatorId;
 
     public Long getId() {
         return id;
@@ -23,83 +28,83 @@ public class WindowDTO {
         this.id = id;
     }
 
-    public MountingAngleDTO getMountingAngle() {
-        return mountingAngle;
+    public Long getMountingAngleId() {
+        return mountingAngleId;
     }
 
-    public void setMountingAngle(MountingAngleDTO mountingAngle) {
-        this.mountingAngle = mountingAngle;
+    public void setMountingAngleId(Long mountingAngleId) {
+        this.mountingAngleId = mountingAngleId;
     }
 
-    public MaterialDTO getMaterial() {
-        return material;
+    public Long getMaterialId() {
+        return materialId;
     }
 
-    public void setMaterial(MaterialDTO material) {
-        this.material = material;
+    public void setMaterialId(Long materialId) {
+        this.materialId = materialId;
     }
 
-    public OpeningTypeDTO getOpeningType() {
-        return openingType;
+    public Long getOpeningTypeId() {
+        return openingTypeId;
     }
 
-    public void setOpeningType(OpeningTypeDTO openingType) {
-        this.openingType = openingType;
+    public void setOpeningTypeId(Long openingTypeId) {
+        this.openingTypeId = openingTypeId;
     }
 
-    public double getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
-    public double getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
-    public GlazingTypeDTO getGlazingType() {
-        return glazingType;
+    public Long getGlazingTypeId() {
+        return glazingTypeId;
     }
 
-    public void setGlazingType(GlazingTypeDTO glazingType) {
-        this.glazingType = glazingType;
+    public void setGlazingTypeId(Long glazingTypeId) {
+        this.glazingTypeId = glazingTypeId;
     }
 
-    public MaterialColorDTO getMaterialColor() {
-        return materialColor;
+    public Long getMaterialColorId() {
+        return materialColorId;
     }
 
-    public void setMaterialColor(MaterialColorDTO materialColor) {
-        this.materialColor = materialColor;
+    public void setMaterialColorId(Long materialColorId) {
+        this.materialColorId = materialColorId;
     }
 
-    public HandleDTO getHandle() {
-        return handle;
+    public Long getHandleId() {
+        return handleId;
     }
 
-    public void setHandle(HandleDTO handle) {
-        this.handle = handle;
+    public void setHandleId(Long handleId) {
+        this.handleId = handleId;
     }
 
-    public FlashingDTO getFlashingName() {
-        return flashingName;
+    public Long getFlashingNameId() {
+        return flashingNameId;
     }
 
-    public void setFlashingName(FlashingDTO flashingName) {
-        this.flashingName = flashingName;
+    public void setFlashingNameId(Long flashingNameId) {
+        this.flashingNameId = flashingNameId;
     }
 
-    public VentilatorDTO getVentilator() {
-        return ventilator;
+    public Long getVentilatorId() {
+        return ventilatorId;
     }
 
-    public void setVentilator(VentilatorDTO ventilator) {
-        this.ventilator = ventilator;
+    public void setVentilatorId(Long ventilatorId) {
+        this.ventilatorId = ventilatorId;
     }
 }
