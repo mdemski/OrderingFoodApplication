@@ -34,7 +34,7 @@ public class MaterialService {
     }
 
     public List<MaterialDTO> getAllMaterials(){
-        Page<Material> materials = materialRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.DESC, "id")));
+        Page<Material> materials = materialRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.ASC, "id")));
         List<Material> content = materials.getContent();
         return content.stream().map(source -> {
             MaterialDTO dto = new MaterialDTO();
@@ -42,5 +42,13 @@ public class MaterialService {
             dto.setName(source.getName());
             return dto;
         }).collect(Collectors.toList());
+    }
+
+    public MaterialDTO getById(Long materialId) {
+        Material material = materialRepository.findById(materialId);
+        MaterialDTO materialDTO = new MaterialDTO();
+        materialDTO.setId(material.getId());
+        materialDTO.setName(material.getName());
+        return materialDTO;
     }
 }
