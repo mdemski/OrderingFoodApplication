@@ -5,4 +5,5 @@ import pl.mdemski.model.AbstractEntity;
 import pl.mdemski.model.Ventilator;
 
 public interface VentilatorRepository<T extends AbstractEntity, L extends Number> extends JpaRepository<Ventilator, Long> {
+    Ventilator findById(Long ventilatorId);
 }
