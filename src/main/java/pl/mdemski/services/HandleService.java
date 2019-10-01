@@ -34,7 +34,7 @@ public class HandleService {
     }
 
     public List<HandleDTO> getAllGlazingTypes(){
-        Page<Handle> glazingType = handleRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.DESC, "id")));
+        Page<Handle> glazingType = handleRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.ASC, "id")));
         List<Handle> content = glazingType.getContent();
         return content.stream().map(source -> {
             HandleDTO dto = new HandleDTO();
@@ -43,5 +43,14 @@ public class HandleService {
             dto.setType(source.getType());
             return dto;
         }).collect(Collectors.toList());
+    }
+
+    public HandleDTO getById(Long handleId) {
+        Handle handle = handleRepository.findById(handleId);
+        HandleDTO handleDTO = new HandleDTO();
+        handleDTO.setId(handle.getId());
+        handleDTO.setColor(handle.getColor());
+        handleDTO.setType(handle.getType());
+        return handleDTO;
     }
 }
