@@ -23,7 +23,7 @@ public class CompanyService {
     }
 
     public List<CompanyDTO> getAllCompanies(){
-        Page<Company> companyDTOS = companyRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.DESC, "id")));
+        Page<Company> companyDTOS = companyRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.ASC, "id")));
         List<Company> content = companyDTOS.getContent();
         return content.stream().map(source -> {
             CompanyDTO dto = new CompanyDTO();
