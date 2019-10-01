@@ -32,7 +32,7 @@ public class FlashingService {
     }
 
     public List<FlashingDTO> getAllFlashings(){
-        Page<Flashing> glazingType = flashingRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.DESC, "id")));
+        Page<Flashing> glazingType = flashingRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.ASC, "id")));
         List<Flashing> content = glazingType.getContent();
         return content.stream().map(source -> {
             FlashingDTO dto = new FlashingDTO();
@@ -40,5 +40,13 @@ public class FlashingService {
             dto.setTypeName(source.getType());
             return dto;
         }).collect(Collectors.toList());
+    }
+
+    public FlashingDTO getById(Long flashingNameId) {
+        Flashing flashing = flashingRepository.findById(flashingNameId);
+        FlashingDTO flashingDTO = new FlashingDTO();
+        flashingDTO.setId(flashing.getId());
+        flashingDTO.setTypeName(flashing.getType());
+        return flashingDTO;
     }
 }
