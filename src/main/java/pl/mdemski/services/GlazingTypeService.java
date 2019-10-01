@@ -30,7 +30,7 @@ public class GlazingTypeService {
     }
 
     public List<GlazingTypeDTO> getAllGlazingTypes(){
-        Page<GlazingType> glazingType = glazingTypeRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.DESC, "id")));
+        Page<GlazingType> glazingType = glazingTypeRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.ASC, "id")));
         List<GlazingType> content = glazingType.getContent();
         return content.stream().map(source -> {
             GlazingTypeDTO dto = new GlazingTypeDTO();
@@ -40,4 +40,11 @@ public class GlazingTypeService {
         }).collect(Collectors.toList());
     }
 
+    public GlazingTypeDTO getById(Long glazingTypeId) {
+        GlazingType glazingType = glazingTypeRepository.findById(glazingTypeId);
+        GlazingTypeDTO glazingTypeDTO = new GlazingTypeDTO();
+        glazingTypeDTO.setId(glazingType.getId());
+        glazingTypeDTO.setName(glazingType.getName());
+        return glazingTypeDTO;
+    }
 }
