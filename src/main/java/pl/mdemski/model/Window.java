@@ -13,20 +13,20 @@ public class Window extends AbstractEntity {
     private Material material;
     @ManyToOne
     private OpeningType openingType;
-    private double height;
-    private double width;
+    private int height;
+    private int width;
     @ManyToOne
     private GlazingType glazingType;
     @ManyToOne
     private MaterialColor materialColor;
     @ManyToOne
-    private String handle;
+    private Handle handle;
     @ManyToOne
     private Flashing flashing;
     @ManyToOne
     private Ventilator ventilator;
 
-    public Window(MountingAngle mountingAngle, Material material, OpeningType openingType, double height, double width, GlazingType glazingType, MaterialColor materialColor, String handle, Flashing flashing, Ventilator ventilator) {
+    public Window(MountingAngle mountingAngle, Material material, OpeningType openingType, int height, int width, GlazingType glazingType, MaterialColor materialColor, Handle handle, Flashing flashing, Ventilator ventilator) {
         this.mountingAngle = mountingAngle;
         this.material = material;
         this.openingType = openingType;
@@ -66,19 +66,19 @@ public class Window extends AbstractEntity {
         this.openingType = openingType;
     }
 
-    public double getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
-    public double getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
@@ -98,11 +98,11 @@ public class Window extends AbstractEntity {
         this.materialColor = materialColor;
     }
 
-    public String getHandle() {
+    public Handle getHandle() {
         return handle;
     }
 
-    public void setHandle(String handle) {
+    public void setHandle(Handle handle) {
         this.handle = handle;
     }
 
