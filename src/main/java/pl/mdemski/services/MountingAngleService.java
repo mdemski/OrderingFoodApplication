@@ -34,7 +34,7 @@ public class MountingAngleService {
     }
 
     public List<MountingAngleDTO> getAllMountings(){
-        Page<MountingAngle> mountingAngles = mountingAngleRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.DESC, "id")));
+        Page<MountingAngle> mountingAngles = mountingAngleRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.ASC, "id")));
         List<MountingAngle> content = mountingAngles.getContent();
         return content.stream().map(source -> {
             MountingAngleDTO dto = new MountingAngleDTO();
@@ -42,5 +42,13 @@ public class MountingAngleService {
             dto.setName(source.getName());
             return dto;
         }).collect(Collectors.toList());
+    }
+
+    public MountingAngleDTO getById(Long mountingAngleId) {
+        MountingAngle mountingAngle = mountingAngleRepository.findById(mountingAngleId);
+        MountingAngleDTO mountingAngleDTO = new MountingAngleDTO();
+        mountingAngleDTO.setId(mountingAngle.getId());
+        mountingAngleDTO.setName(mountingAngle.getName());
+        return mountingAngleDTO;
     }
 }
