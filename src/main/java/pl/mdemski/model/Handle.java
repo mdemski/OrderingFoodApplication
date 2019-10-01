@@ -11,6 +11,8 @@ public class Handle extends AbstractEntity {
     private String type;
 
     public Handle(String color, String type) {
+        this.color = color;
+        this.type = type;
     }
 
     public Handle() {
