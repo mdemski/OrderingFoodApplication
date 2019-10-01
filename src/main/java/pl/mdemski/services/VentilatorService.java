@@ -29,7 +29,7 @@ public class VentilatorService {
     }
 
     public List<VentilatorDTO> getAllVentilators(){
-        Page<Ventilator> glazingType = ventilatorRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.DESC, "id")));
+        Page<Ventilator> glazingType = ventilatorRepository.findAll(new PageRequest(0, 20, new Sort(Sort.Direction.ASC, "id")));
         List<Ventilator> content = glazingType.getContent();
         return content.stream().map(source -> {
             VentilatorDTO dto = new VentilatorDTO();
@@ -37,5 +37,13 @@ public class VentilatorService {
             dto.setVentiName(source.getName());
             return dto;
         }).collect(Collectors.toList());
+    }
+
+    public VentilatorDTO getById(Long ventilatorId) {
+        Ventilator ventilator = ventilatorRepository.findById(ventilatorId);
+        VentilatorDTO ventilatorDTO = new VentilatorDTO();
+        ventilatorDTO.setId(ventilator.getId());
+        ventilatorDTO.setVentiName(ventilator.getName());
+        return ventilatorDTO;
     }
 }
