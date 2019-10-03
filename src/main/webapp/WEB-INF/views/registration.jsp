@@ -62,7 +62,7 @@
                             <button class="btn btn-info btn-block my-4" type="reset">Wyczyść dane</button>
 
                             <p class="h6 mb-4">Brakuje firmy w zestawieniu?</p>
-                            <a type="button" class="btn btn-primary" href='${mainUrl}firmy/dodaj-firme"'>Dodaj</a><br><br>
+                            <a type="button" class="btn btn-primary" href='${mainUrl}firmy/dodaj-firme'>Dodaj</a><br><br>
                             <a href='${mainUrl}login'>Mam już konto</a>
 
                             <a type="button" class="light-blue-text mx-2" href="https://pl-pl.facebook.com/oknadachowe">
