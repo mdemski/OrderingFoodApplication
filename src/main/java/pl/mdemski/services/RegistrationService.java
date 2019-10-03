@@ -42,20 +42,10 @@ public class RegistrationService {
         user.setPassword(encodedPassword);
         user.setFirstName(data.getFirstName());
         Company company = companyRepository.findByName(data.getCompanyName());
-        if (company == null) {
-            company = new Company();
-            company.setName(data.getCompanyName());
-            company.setCity(data.getCity());
-            company.setAddress(data.getAddress());
-            company.setPostCode(data.getPostCode());
-            company.setNip(data.getCompanyNip());
-            company.setContactFirstName(data.getContactFirstName());
-            company.setContactLastName(data.getContactLastName());
-            List<User> users = new ArrayList<>();
-            users.add(user);
-            company.setUsers(users);
-            companyRepository.save(company);
-        }
+        List<User> users = new ArrayList<>();
+        users.add(user);
+        company.setUsers(users);
+        companyRepository.save(company);
         user.setCompany(company);
         userRepository.save(user);
     }
