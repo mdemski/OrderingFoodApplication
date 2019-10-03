@@ -23,6 +23,7 @@ public class RegistrationFormDTO {
     private String firstName;
     @AssertTrue(message = "Brak akceptacji regualminu.")
     private boolean statuteKnowledge;
+    private String companyName;
 
     public boolean isStatuteKnowledge() {
         return statuteKnowledge;
@@ -62,5 +63,13 @@ public class RegistrationFormDTO {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 }
