@@ -1,9 +1,11 @@
 package pl.mdemski.services;
 
+import org.checkerframework.checker.units.qual.C;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import pl.mdemski.dto.AddNewCompanyDTO;
 import pl.mdemski.dto.CompanyDTO;
 import pl.mdemski.model.Company;
 import pl.mdemski.repositories.CompanyRepository;
@@ -37,5 +39,17 @@ public class CompanyService {
             dto.setContactLastName(source.getContactLastName());
             return dto;
         }).collect(Collectors.toList());
+    }
+
+    public void addNewCompany(AddNewCompanyDTO addNewCompanyDTO) {
+        Company company = new Company();
+        company.setName(addNewCompanyDTO.getCompanyName());
+        company.setAddress(addNewCompanyDTO.getAddress());
+        company.setCity(addNewCompanyDTO.getCity());
+        company.setPostCode(addNewCompanyDTO.getPostCode());
+        company.setNip(addNewCompanyDTO.getCompanyNip());
+        company.setContactFirstName(addNewCompanyDTO.getContactFirstName());
+        company.setContactLastName(addNewCompanyDTO.getContactLastName());
+        companyRepository.save(company);
     }
 }
