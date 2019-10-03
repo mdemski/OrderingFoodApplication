@@ -42,6 +42,8 @@
     <!-- Stepper JavaScript - minified -->
     <script type="text/javascript" src="${mainUrl}resources/js/addons-pro/stepper.min.js"></script>
 
+<%--    <script type="text/javascript" src="${mainUrl}resources/js/stepperFromWeb.js"></script>--%>
+
 </head>
 <body>
 <header>
