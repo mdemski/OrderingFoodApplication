@@ -13,6 +13,7 @@ import pl.mdemski.services.CompanyService;
 import pl.mdemski.services.RegistrationService;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -30,7 +31,11 @@ public class RegistrationController {
     @GetMapping
     public String prepareRegistrationPage(Model model) {
         List<CompanyDTO> companyList = companyService.getAllCompanies();
-        model.addAttribute("companies", companyList);
+        List<String> companyNames = new ArrayList<>();
+        for (CompanyDTO company : companyList) {
+            companyNames.add(company.getCompanyName());
+        }
+        model.addAttribute("companies", companyNames);
         model.addAttribute("data", new RegistrationFormDTO());
         return "registration";
     }
