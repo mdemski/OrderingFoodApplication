@@ -45,8 +45,8 @@ public class RegistrationService {
         List<User> users = new ArrayList<>();
         users.add(user);
         company.setUsers(users);
-        companyRepository.save(company);
         user.setCompany(company);
         userRepository.save(user);
+        companyRepository.save(company);
     }
 }
