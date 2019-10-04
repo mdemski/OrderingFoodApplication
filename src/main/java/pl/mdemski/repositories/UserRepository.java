@@ -10,4 +10,5 @@ public interface UserRepository<T extends AbstractEntity, L extends Number> exte
 
     User getByEmail(String email);
 
+    User findById(Long userId);
 }
