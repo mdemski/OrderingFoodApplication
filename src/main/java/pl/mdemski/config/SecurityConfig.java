@@ -45,9 +45,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .formLogin()
-                .and()
+                .loginPage("/logowanie")
+                .usernameParameter("email")
+                .passwordParameter("password")
+                .and().logout()
                 //and wracamy do konfiguracji ogólnej
-                .csrf().disable()
+                .and().csrf().disable()
                 //wyłączamy analizę csrf
                 .authorizeRequests()
                 //autoryzacja dostępu w tym wypadku dla wszystkich
