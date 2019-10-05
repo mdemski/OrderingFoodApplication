@@ -21,7 +21,7 @@
                 <div class="card">
 
                     <!-- Card image -->
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+                    <img class="card-img-top" src="${mainUrl}resources/static/antique-backdrop-background-164005.jpg"
                          alt="Card image cap">
 
                     <!-- Card content -->
