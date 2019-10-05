@@ -6,6 +6,7 @@ import pl.mdemski.model.Window;
 import pl.mdemski.repositories.*;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 
 @Service
 @Transactional
@@ -20,8 +21,9 @@ public class WindowService {
     private HandleRepository handleRepository;
     private FlashingRepository flashingRepository;
     private VentilatorRepository ventilatorRepository;
+    private UserRepository userRepository;
 
-    public WindowService(WindowRepository windowRepository, MountingAngleRepository mountingAngleRepository, MaterialRepository materialRepository, OpeningTypeRepository openingTypeRepository, GlazingTypeRepository glazingTypeRepository, MaterialColorRepository materialColorRepository, HandleRepository handleRepository, FlashingRepository flashingRepository, VentilatorRepository ventilatorRepository) {
+    public WindowService(WindowRepository windowRepository, MountingAngleRepository mountingAngleRepository, MaterialRepository materialRepository, OpeningTypeRepository openingTypeRepository, GlazingTypeRepository glazingTypeRepository, MaterialColorRepository materialColorRepository, HandleRepository handleRepository, FlashingRepository flashingRepository, VentilatorRepository ventilatorRepository, UserRepository userRepository) {
         this.windowRepository = windowRepository;
         this.mountingAngleRepository = mountingAngleRepository;
         this.materialRepository = materialRepository;
@@ -31,6 +33,7 @@ public class WindowService {
         this.handleRepository = handleRepository;
         this.flashingRepository = flashingRepository;
         this.ventilatorRepository = ventilatorRepository;
+        this.userRepository = userRepository;
     }
 
     public Window addNewWindow(WindowDTO dataWindowDTO) {
@@ -87,6 +90,11 @@ public class WindowService {
         } else {
             windowDTO.setVentilatorId(window.getVentilator().getId());
         }
+        if (window.getUser() == null){
+            return windowDTO;
+        } else {
+            windowDTO.setCreatorId(window.getUser().getId());
+        }
         return windowDTO;
     }
 
@@ -101,6 +109,8 @@ public class WindowService {
         window.setHandle(handleRepository.findById(dataWindowDTO.getHandleId()));
         window.setFlashing(flashingRepository.findById(dataWindowDTO.getFlashingNameId()));
         window.setVentilator(ventilatorRepository.findById(dataWindowDTO.getVentilatorId()));
+        window.setCreated(LocalDateTime.now());
+        window.setUser(userRepository.findById(dataWindowDTO.getCreatorId()));
         windowRepository.save(window);
         return window;
     }
