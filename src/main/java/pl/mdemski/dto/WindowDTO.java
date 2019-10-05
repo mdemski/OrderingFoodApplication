@@ -2,6 +2,7 @@ package pl.mdemski.dto;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.time.LocalDateTime;
 
 public class WindowDTO {
     private Long id;
@@ -19,6 +20,7 @@ public class WindowDTO {
     private Long handleId;
     private Long flashingNameId;
     private Long ventilatorId;
+    private Long creatorId;
 
     public Long getId() {
         return id;
@@ -106,5 +108,13 @@ public class WindowDTO {
 
     public void setVentilatorId(Long ventilatorId) {
         this.ventilatorId = ventilatorId;
+    }
+
+    public Long getCreatorId() {
+        return creatorId;
+    }
+
+    public void setCreatorId(Long creatorId) {
+        this.creatorId = creatorId;
     }
 }
