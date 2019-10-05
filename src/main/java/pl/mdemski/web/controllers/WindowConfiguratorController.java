@@ -5,10 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.mdemski.dto.*;
+import pl.mdemski.model.User;
 import pl.mdemski.model.Window;
 import pl.mdemski.services.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -24,8 +26,9 @@ public class WindowConfiguratorController {
     private FlashingService flashingService;
     private VentilatorService ventilatorService;
     private WindowService windowService;
+    private UserService userService;
 
-    public WindowConfiguratorController(MountingAngleService mountingAngleService, MaterialService materialService, OpeningTypeService openingTypeService, GlazingTypeService glazingTypeService, MaterialColorService materialColorService, HandleService handleService, FlashingService flashingService, VentilatorService ventilatorService, WindowService windowService) {
+    public WindowConfiguratorController(MountingAngleService mountingAngleService, MaterialService materialService, OpeningTypeService openingTypeService, GlazingTypeService glazingTypeService, MaterialColorService materialColorService, HandleService handleService, FlashingService flashingService, VentilatorService ventilatorService, WindowService windowService, UserService userService) {
         this.mountingAngleService = mountingAngleService;
         this.materialService = materialService;
         this.openingTypeService = openingTypeService;
@@ -35,6 +38,7 @@ public class WindowConfiguratorController {
         this.flashingService = flashingService;
         this.ventilatorService = ventilatorService;
         this.windowService = windowService;
+        this.userService = userService;
     }
 
     @ModelAttribute("mountingList")
@@ -210,6 +214,15 @@ public class WindowConfiguratorController {
         model.addAttribute("chosenFlashing", flashingService.getById(windowDTO1.getFlashingNameId()));
         model.addAttribute("chosenVentilator", ventilatorService.getById(windowDTO1.getVentilatorId()));
         return "summaryWindowsConfig";
+    }
+
+    @PostMapping("/podsumowanie")
+    public String processSummaryWindowConfiguration(@ModelAttribute("windowDTO") WindowDTO windowDTO, Principal principal) {
+        User user = userService.getUserByEmail(principal.getName());
+        Long userId = user.getId();
+        windowDTO.setCreatorId(userId);
+        Window window = windowService.editWindowConfiguration(windowDTO);
+        return "redirect:/moje-konto/"+ userId + "/moje-konfiguracje";
     }
 
 }
