@@ -879,7 +879,7 @@
 <%--            </li>--%>
 <%--        </form:form>--%>
 <%--        <form:form method="post" modelAttribute="windowDTO" action="/konfigurator/okna-dachowe/podsumowanie">--%>
-<%--            <li class="step active">--%>
+<%--            <li class="step">--%>
 <%--                <div data-step-label="Podsumowanie" class="step-title waves-effect waves-dark"></div>--%>
 <%--                <form:hidden path="id"/>--%>
 <%--                <div class="table-responsive text-nowrap">--%>
@@ -951,7 +951,20 @@
 <%--                            <th scope="row">10</th>--%>
 <%--                            <td>Suma</td>--%>
 <%--                            <td>Łączna kwota okna wyliczona z bazy danych</td>--%>
-<%--                            <td><a type="button" class="btn btn-primary" href='${mainUrl}zamowienie/${id}"'>Zamów</a>--%>
+<%--                            <td>--%>
+<%--                                <hidden value="${mainUrl}"></hidden>--%>
+<%--                                <form:hidden path="id"/>--%>
+<%--                                <form:hidden path="mountingAngleId"/>--%>
+<%--                                <form:hidden path="materialId"/>--%>
+<%--                                <form:hidden path="openingTypeId"/>--%>
+<%--                                <form:hidden path="width"/>--%>
+<%--                                <form:hidden path="height"/>--%>
+<%--                                <form:hidden path="glazingTypeId"/>--%>
+<%--                                <form:hidden path="materialColorId"/>--%>
+<%--                                <form:hidden path="handleId"/>--%>
+<%--                                <form:hidden path="flashingNameId"/>--%>
+<%--                                <form:hidden path="ventilatorId"/>--%>
+<%--                                <form:button type="submit" class="btn btn-primary">Zapisz</form:button>--%>
 <%--                            </td>--%>
 <%--                        </tr>--%>
 <%--                        </tbody>--%>

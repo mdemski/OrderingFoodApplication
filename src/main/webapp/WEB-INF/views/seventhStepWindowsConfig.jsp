@@ -876,88 +876,100 @@
 <%--                </div>--%>
 <%--            </li>--%>
 <%--        </form:form>--%>
-<%--        <form:form method="post" modelAttribute="windowDTO" action="/konfigurator/okna-dachowe/podsumowanie">--%>
-<%--            <li class="step active">--%>
-<%--                <div data-step-label="Podsumowanie" class="step-title waves-effect waves-dark"></div>--%>
-<%--                <form:hidden path="id"/>--%>
-<%--                <div class="table-responsive text-nowrap">--%>
-<%--                    <table class="table">--%>
-<%--                        <thead>--%>
-<%--                        <tr>--%>
-<%--                            <th scope="col">Krok</th>--%>
-<%--                            <th scope="col">Opis</th>--%>
-<%--                            <th scope="col">Wybór</th>--%>
-<%--                            <th scope="col">Edycja</th>--%>
-<%--                        </tr>--%>
-<%--                        </thead>--%>
-<%--                        <tbody>--%>
-<%--                        <tr>--%>
-<%--                            <th scope="row">1</th>--%>
-<%--                            <td>Kąt montażu</td>--%>
-<%--                            <td>${chosenMountingAngle.name}</td>--%>
-<%--                            <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-1/${id}"/>'>Edytuj</a></td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <th scope="row">2</th>--%>
-<%--                            <td>Materiał wykonania</td>--%>
-<%--                            <td>${chosenMaterial.name}</td>--%>
-<%--                            <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-2/${id}"/>'>Edytuj</a></td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <th scope="row">3</th>--%>
-<%--                            <td>Typ otwierania</td>--%>
-<%--                            <td>${chosenTypeOpening.name}</td>--%>
-<%--                            <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-3/${id}"/>'>Edytuj</a></td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <th scope="row">4</th>--%>
-<%--                            <td>Wymiary</td>--%>
-<%--                            <td>${chosenWidth} x ${chosenHeight}</td>--%>
-<%--                            <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-4/${id}"/>'>Edytuj</a></td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <th scope="row">5</th>--%>
-<%--                            <td>Pakiet szybowy</td>--%>
-<%--                            <td>${chosenGlazingType.name}</td>--%>
-<%--                            <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-5/${id}"/>'>Edytuj</a></td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <th scope="row">6</th>--%>
-<%--                            <td>Kolor zewnętrzny</td>--%>
-<%--                            <td>${chosenMaterialColor.ralName}</td>--%>
-<%--                            <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-6/${id}"/>'>Edytuj</a></td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <th scope="row">7</th>--%>
-<%--                            <td>Klamka</td>--%>
-<%--                            <td>${chosenHandle.type} - ${chosenHandle.color}</td>--%>
-<%--                            <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-7/${id}"/>'>Edytuj</a></td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <th scope="row">8</th>--%>
-<%--                            <td>Kołnierz uszczelniający</td>--%>
-<%--                            <td>${chosenFlashing.typeName}</td>--%>
-<%--                            <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-8/${id}"/>'>Edytuj</a></td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <th scope="row">9</th>--%>
-<%--                            <td>Nawiewnik</td>--%>
-<%--                            <td>${chosenVentilator.ventiName}</td>--%>
-<%--                            <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-9/${id}"/>'>Edytuj</a></td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <th scope="row">10</th>--%>
-<%--                            <td>Suma</td>--%>
-<%--                            <td>Łączna kwota okna wyliczona z bazy danych</td>--%>
-<%--                            <td><a type="button" class="btn btn-primary" href='${mainUrl}zamowienie/${id}"'>Zamów</a>--%>
-<%--                            </td>--%>
-<%--                        </tr>--%>
-<%--                        </tbody>--%>
-<%--                    </table>--%>
-<%--                </div>--%>
-<%--            </li>--%>
-<%--        </form:form>--%>
-
+<%--    <form:form method="post" modelAttribute="windowDTO" action="/konfigurator/okna-dachowe/podsumowanie">--%>
+<%--        <li class="step">--%>
+<%--            <div data-step-label="Podsumowanie" class="step-title waves-effect waves-dark"></div>--%>
+<%--            <form:hidden path="id"/>--%>
+<%--            <div class="table-responsive text-nowrap">--%>
+<%--                <table class="table">--%>
+<%--                    <thead>--%>
+<%--                    <tr>--%>
+<%--                        <th scope="col">Krok</th>--%>
+<%--                        <th scope="col">Opis</th>--%>
+<%--                        <th scope="col">Wybór</th>--%>
+<%--                        <th scope="col">Edycja</th>--%>
+<%--                    </tr>--%>
+<%--                    </thead>--%>
+<%--                    <tbody>--%>
+<%--                    <tr>--%>
+<%--                        <th scope="row">1</th>--%>
+<%--                        <td>Kąt montażu</td>--%>
+<%--                        <td>${chosenMountingAngle.name}</td>--%>
+<%--                        <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-1/${id}"/>'>Edytuj</a></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <th scope="row">2</th>--%>
+<%--                        <td>Materiał wykonania</td>--%>
+<%--                        <td>${chosenMaterial.name}</td>--%>
+<%--                        <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-2/${id}"/>'>Edytuj</a></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <th scope="row">3</th>--%>
+<%--                        <td>Typ otwierania</td>--%>
+<%--                        <td>${chosenTypeOpening.name}</td>--%>
+<%--                        <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-3/${id}"/>'>Edytuj</a></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <th scope="row">4</th>--%>
+<%--                        <td>Wymiary</td>--%>
+<%--                        <td>${chosenWidth} x ${chosenHeight}</td>--%>
+<%--                        <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-4/${id}"/>'>Edytuj</a></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <th scope="row">5</th>--%>
+<%--                        <td>Pakiet szybowy</td>--%>
+<%--                        <td>${chosenGlazingType.name}</td>--%>
+<%--                        <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-5/${id}"/>'>Edytuj</a></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <th scope="row">6</th>--%>
+<%--                        <td>Kolor zewnętrzny</td>--%>
+<%--                        <td>${chosenMaterialColor.ralName}</td>--%>
+<%--                        <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-6/${id}"/>'>Edytuj</a></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <th scope="row">7</th>--%>
+<%--                        <td>Klamka</td>--%>
+<%--                        <td>${chosenHandle.type} - ${chosenHandle.color}</td>--%>
+<%--                        <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-7/${id}"/>'>Edytuj</a></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <th scope="row">8</th>--%>
+<%--                        <td>Kołnierz uszczelniający</td>--%>
+<%--                        <td>${chosenFlashing.typeName}</td>--%>
+<%--                        <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-8/${id}"/>'>Edytuj</a></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <th scope="row">9</th>--%>
+<%--                        <td>Nawiewnik</td>--%>
+<%--                        <td>${chosenVentilator.ventiName}</td>--%>
+<%--                        <td><a href='<c:url value="/konfigurator/okna-dachowe/krok-9/${id}"/>'>Edytuj</a></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <th scope="row">10</th>--%>
+<%--                        <td>Suma</td>--%>
+<%--                        <td>Łączna kwota okna wyliczona z bazy danych</td>--%>
+<%--                        <td>--%>
+<%--                            <hidden value="${mainUrl}"></hidden>--%>
+<%--                            <form:hidden path="id"/>--%>
+<%--                            <form:hidden path="mountingAngleId"/>--%>
+<%--                            <form:hidden path="materialId"/>--%>
+<%--                            <form:hidden path="openingTypeId"/>--%>
+<%--                            <form:hidden path="width"/>--%>
+<%--                            <form:hidden path="height"/>--%>
+<%--                            <form:hidden path="glazingTypeId"/>--%>
+<%--                            <form:hidden path="materialColorId"/>--%>
+<%--                            <form:hidden path="handleId"/>--%>
+<%--                            <form:hidden path="flashingNameId"/>--%>
+<%--                            <form:hidden path="ventilatorId"/>--%>
+<%--                            <form:button type="submit" class="btn btn-primary">Zapisz</form:button>--%>
+<%--                        </td>--%>
+<%--                    </tr>--%>
+<%--                    </tbody>--%>
+<%--                </table>--%>
+<%--            </div>--%>
+<%--        </li>--%>
+<%--    </form:form>--%>
     </ul>
 </main>
 
