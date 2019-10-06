@@ -11,6 +11,8 @@ import pl.mdemski.repositories.FlashingRepository;
 import pl.mdemski.repositories.MaterialColorRepository;
 
 import javax.transaction.Transactional;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,7 +29,17 @@ public class FlashingService {
 
     public void addFlashing(){
         MaterialColor materialColor = materialColorRepository.findById(1L);
-        Flashing flashing = new Flashing("U", materialColor, 1180, 780);
+        File file = new File("C:\\PROGRAMOWANIE\\codersLab\\OrderingFoodApplication\\src\\main\\webapp\\resources\\static\\flashing_L.png");
+        byte[] bFile = new byte[(int) file.length()];
+        try {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            //convert file into array of bytes
+            fileInputStream.read(bFile);
+            fileInputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Flashing flashing = new Flashing("L", materialColor, 1180, 780, "Kołnierz do łuskowych niskich L umożliwia łączenie okna z łupkowymi pokryciami dachowymi do 0,8 cm wysokości.", bFile, true);
         flashingRepository.save(flashing);
     }
 
