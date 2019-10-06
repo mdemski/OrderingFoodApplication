@@ -5,6 +5,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import pl.mdemski.dto.HandleDTO;
+import pl.mdemski.model.FileConverter;
 import pl.mdemski.model.Handle;
 import pl.mdemski.repositories.HandleRepository;
 
@@ -23,10 +24,12 @@ public class HandleService {
     }
 
     public void addHandle(){
-        Handle handle = new Handle("biała", "z kluczykiem");
-        Handle handle1 = new Handle("szampańska", "z kluczykiem");
-        Handle handle2 = new Handle("biała", "bez kluczyka");
-        Handle handle3 = new Handle("szampańska", "bez kluczyka");
+        byte[] whiteWithKey = FileConverter.converter("C:\\PROGRAMOWANIE\\codersLab\\OrderingFoodApplication\\src\\main\\webapp\\resources\\static\\klamka_9016_kluczyk.png");
+        byte[] goldWithKey = FileConverter.converter("C:\\PROGRAMOWANIE\\codersLab\\OrderingFoodApplication\\src\\main\\webapp\\resources\\static\\klamka_7022_kluczyk.png");
+        Handle handle = new Handle("biała", "z kluczykiem", "Biała klamka z kluczykiem, wysoki komfort użytkowania i bezpieczeństwa", whiteWithKey);
+        Handle handle1 = new Handle("szampańska", "z kluczykiem", "Szampańska klamka z kluczykiem, wysoki komfort użytkowania i bezpieczeństwa", goldWithKey);
+        Handle handle2 = new Handle("biała", "bez kluczyka", "Biała klamka, o wysokim komforcie użytkowania i bezpieczeństwa", whiteWithKey);
+        Handle handle3 = new Handle("szampańska", "bez kluczyka", "Szampańska klamka, o wysokim komforcie użytkowania i bezpieczeństwa", goldWithKey);
         handleRepository.save(handle);
         handleRepository.save(handle1);
         handleRepository.save(handle2);
