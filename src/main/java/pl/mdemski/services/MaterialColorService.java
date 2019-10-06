@@ -5,6 +5,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import pl.mdemski.dto.MaterialColorDTO;
+import pl.mdemski.model.FileConverter;
 import pl.mdemski.model.MaterialColor;
 import pl.mdemski.repositories.MaterialColorRepository;
 
@@ -22,7 +23,8 @@ public class MaterialColorService {
     }
 
     public void addMaterialColor() {
-        MaterialColor materialColor = new MaterialColor("RAL7022");
+        byte[] flashingU = FileConverter.converter("C:\\PROGRAMOWANIE\\codersLab\\OrderingFoodApplication\\src\\main\\webapp\\resources\\static\\kołnierz_u_ral_7022.png");
+        MaterialColor materialColor = new MaterialColor("RAL7022", "Najbardziej popularny kolor antracytowy pasujący do większości dachówek.", flashingU);
         materialColorRepository.save(materialColor);
     }
 
