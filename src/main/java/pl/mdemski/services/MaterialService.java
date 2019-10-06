@@ -5,6 +5,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import pl.mdemski.dto.MaterialDTO;
+import pl.mdemski.model.FileConverter;
 import pl.mdemski.model.Material;
 import pl.mdemski.repositories.MaterialRepository;
 
@@ -23,10 +24,14 @@ public class MaterialService {
     }
 
     public void addNewMaterial(){
-        Material material = new Material("drewno SOLID");
-        Material material1 = new Material("drewno SOLID+");
-        Material material2 = new Material("PVC SOLID");
-        Material material3 = new Material("PVC SOLID+");
+        byte[] solidWood = FileConverter.converter("C:\\PROGRAMOWANIE\\codersLab\\OrderingFoodApplication\\src\\main\\webapp\\resources\\static\\solid.png");
+        byte[] solidPlusWood = FileConverter.converter("C:\\PROGRAMOWANIE\\codersLab\\OrderingFoodApplication\\src\\main\\webapp\\resources\\static\\solid+.png");
+        byte[] solidPVC = FileConverter.converter("C:\\PROGRAMOWANIE\\codersLab\\OrderingFoodApplication\\src\\main\\webapp\\resources\\static\\pvc_solid.png");
+        byte[] solidPlusPVC = FileConverter.converter("C:\\PROGRAMOWANIE\\codersLab\\OrderingFoodApplication\\src\\main\\webapp\\resources\\static\\pvc_solid+.png");
+        Material material = new Material("drewno SOLID", "Stolarka SOLID cechuję się wysoką sztywności i trwałością. Skrzydło/rama - 116/130 mm.", solidWood);
+        Material material1 = new Material("drewno SOLID+", "Stolarka SOLID cechuję się najwyższą sztywnością i trwałością.", solidPlusWood);
+        Material material2 = new Material("PVC SOLID", "Stolarka PVC umożliwia wieloletnie korzystanie bez konieczności konserwacji.", solidPVC);
+        Material material3 = new Material("PVC SOLID+", "Stolarka PVC umożliwia wieloletnie korzystanie bez konieczności konserwacji.", solidPlusPVC);
         materialRepository.save(material);
         materialRepository.save(material1);
         materialRepository.save(material2);
