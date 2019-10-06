@@ -20,11 +20,20 @@ public class UserAccountController {
         this.userService = userService;
     }
 
+    @GetMapping()
+    public String prepareUserInformationPage(Principal principal, Model model) {
+        Long userId = userService.getUserByEmail(principal.getName()).getId();
+        if (userId != null) {
+            return "redirect:/moje-konto/" + userId;
+        }
+        return "login";
+    }
+
     @GetMapping("/{id}")
-    public String prepareUserInformationPage(@PathVariable Long id, Principal principal, Model model){
+    public String prepareUserInformationPage(@PathVariable Long id, Principal principal, Model model) {
         model.addAttribute("userId", id);
         User user = userService.getUserByEmail(principal.getName());
-        if (!(user.getEmail().equals(userService.findById(id).getEmail()))){
+        if (!(user.getEmail().equals(userService.findById(id).getEmail()))) {
             return "index";
         } else {
             return "my-account";
