@@ -5,6 +5,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import pl.mdemski.dto.OpeningTypeDTO;
+import pl.mdemski.model.FileConverter;
 import pl.mdemski.model.OpeningType;
 import pl.mdemski.repositories.OpeningTypeRepository;
 
@@ -23,10 +24,14 @@ public class OpeningTypeService {
     }
 
     public void addNewOpeningType(){
-        OpeningType openingType = new OpeningType("obrotowe");
-        OpeningType openingType1 = new OpeningType("uchylno-przesuwne");
-        OpeningType openingType2 = new OpeningType("wysokoosiowe");
-        OpeningType openingType3 = new OpeningType("nieotwieralne");
+        byte[] highPivot = FileConverter.converter("C:\\PROGRAMOWANIE\\codersLab\\OrderingFoodApplication\\src\\main\\webapp\\resources\\static\\wysokoosiowe.png");
+        byte[] centrePivot = FileConverter.converter("C:\\PROGRAMOWANIE\\codersLab\\OrderingFoodApplication\\src\\main\\webapp\\resources\\static\\15-90.png");
+        byte[] topHung = FileConverter.converter("C:\\PROGRAMOWANIE\\codersLab\\OrderingFoodApplication\\src\\main\\webapp\\resources\\static\\15-65.png");
+        byte[] flatRoof = FileConverter.converter("C:\\PROGRAMOWANIE\\codersLab\\OrderingFoodApplication\\src\\main\\webapp\\resources\\static\\2-15.png");
+        OpeningType openingType = new OpeningType("obrotowe", "Okna obrotowe to popularna, rynkowa propozycja, stworzona dla prawdziwych miłośników wygody.", centrePivot);
+        OpeningType openingType1 = new OpeningType("uchylno-przesuwne", "Wyróżnikiem okien uchylno-przesuwnych OKPOL jest wyjątkowa, umożliwiająca ich otwieranie do poziomu 60 stopni.", topHung);
+        OpeningType openingType2 = new OpeningType("wysokoosiowe", "Okna wysokoosiwe stanowią odmianę okien obrotowych, z powyższoną osią obrotu dla poprawy wygody.", highPivot);
+        OpeningType openingType3 = new OpeningType("nieotwieralne", "Okna nieotwieralne są propozycją dla osób, którym zależy wyłącznie na doświetleniu pomieszczeniu", flatRoof);
         openingTypeRepository.save(openingType);
         openingTypeRepository.save(openingType1);
         openingTypeRepository.save(openingType2);
