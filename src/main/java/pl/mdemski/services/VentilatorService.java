@@ -5,6 +5,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import pl.mdemski.dto.VentilatorDTO;
+import pl.mdemski.model.FileConverter;
 import pl.mdemski.model.Ventilator;
 import pl.mdemski.repositories.VentilatorRepository;
 
@@ -22,8 +23,10 @@ public class VentilatorService {
     }
 
     public void addVentilator(){
-        Ventilator ventilator = new Ventilator("Neo-Air");
-        Ventilator ventilator2 = new Ventilator("Bez nawiewnika");
+        byte[] neoAir = FileConverter.converter("C:\\PROGRAMOWANIE\\codersLab\\OrderingFoodApplication\\src\\main\\webapp\\resources\\static\\solid+.png");
+        byte[] withoutVenti = FileConverter.converter("C:\\PROGRAMOWANIE\\codersLab\\OrderingFoodApplication\\src\\main\\webapp\\resources\\static\\solid.png");
+        Ventilator ventilator = new Ventilator("Neo-Air", "Nawiwenik ten cechuja bardzo wysoka wydajność wymiany powietrza oraz estetyczny design.", neoAir);
+        Ventilator ventilator2 = new Ventilator("Bez nawiewnika", "W budownictwie z mechaniczną wymianą powietrza w takich przypadkach lepiej sprawdzi się okno pozbawione nawiewnika.", withoutVenti);
         ventilatorRepository.save(ventilator);
         ventilatorRepository.save(ventilator2);
     }
