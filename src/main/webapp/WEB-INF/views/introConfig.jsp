@@ -8,11 +8,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Konfigurator</title>
-</head>
-<body>
+<c:url var="mainUrl" value="/"/>
+<main>
 <section class="text-center my-5">
 
     <!-- Section heading -->
@@ -29,15 +26,15 @@
 
             <!-- Featured image -->
             <div class="view overlay rounded z-depth-2 mb-4">
-                <img class="img-fluid" src="https://www.okpol.pl/wp-content/uploads/2014/10/okno-obrotowe-drewniane.png"
+                <img class="img-fluid" src="${mainUrl}resources/static/roof-windows.png"
                      alt="Okna dachowe OKPOL">
-                <a>
+                <a href="${mainUrl}konfigurator/okna-dachowe/krok-1">
                     <div class="mask rgba-white-slight"></div>
                 </a>
             </div>
 
             <!-- Category -->
-            <a href="<c:url value="/konfigurator/okna-dachowe/krok-1"/>" class="pink-text">
+            <a href="${mainUrl}konfigurator/okna-dachowe/krok-1" class="pink-text">
                 <h6 class="font-weight-bold mb-3"><i class="fas fa-map pr-2"></i>Okna dachowe</h6>
             </a>
             <!-- Excerpt -->
@@ -51,7 +48,7 @@
 
             <!-- Featured image -->
             <div class="view overlay rounded z-depth-2 mb-4">
-                <img class="img-fluid" src="https://www.okpol.pl/wp-content/uploads/2014/11/1_Ko%C5%82nierz-U-flat.png"
+                <img class="img-fluid" src="${mainUrl}resources/static/flashings.png"
                      alt="Kołnierze uszczelniające OKPOL">
                 <a>
                     <div class="mask rgba-white-slight"></div>
@@ -76,7 +73,7 @@
 
             <!-- Featured image -->
             <div class="view overlay rounded z-depth-2 mb-4">
-                <img class="img-fluid" src="https://www.okpol.pl/wp-content/uploads/2014/11/Ko%C5%82nierz-LH.png"
+                <img class="img-fluid" src="${mainUrl}resources/static/connection-in-roof.png"
                      alt="Kołnierze modułowe">
                 <a>
                     <div class="mask rgba-white-slight"></div>
@@ -97,5 +94,6 @@
     </div>
     <!-- Grid row -->
 </section>
-</body>
-</html>
+</main>
+
+<jsp:include page="footer.jsp"/>
