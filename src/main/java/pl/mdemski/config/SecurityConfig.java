@@ -58,6 +58,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/logowanie").permitAll()
                 .antMatchers("/firmy/dodaj-firme").permitAll()
                 .antMatchers("/cennik").permitAll()
+                .antMatchers("/cennik/okna-dachowe").permitAll()
+                .antMatchers("/cennik/kolnierze").permitAll()
+                .antMatchers("/cennik/wylazy").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
                 // wyciągamy role z bazy jeśli chcemy ograniczyć dostęp względem ról (role są najczęściej osobną tabelą ROLE_ADMIN nazwa z bazy danych
