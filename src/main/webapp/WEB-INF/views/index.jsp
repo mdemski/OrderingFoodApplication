@@ -8,6 +8,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:url var="mainUrl" value="/"/>
 <main>
 <section class="text-center my-5">
 
@@ -27,13 +28,13 @@
             <div class="view overlay rounded z-depth-2 mb-4">
                 <img class="img-fluid" src="https://www.okpol.pl/wp-content/uploads/2018/03/6.1.jpg"
                      alt="Konfigurator">
-                <a>
+                <a href="${mainUrl}konfigurator">
                     <div class="mask rgba-white-slight"></div>
                 </a>
             </div>
 
             <!-- Category -->
-            <a href="<c:url value="/konfigurator"/>" class="pink-text">
+            <a href="${mainUrl}konfigurator" class="pink-text">
                 <h6 class="font-weight-bold mb-3"><i class="fas fa-map pr-2"></i>Konfigurator</h6>
             </a>
             <!-- Excerpt -->
@@ -49,13 +50,13 @@
             <div class="view overlay rounded z-depth-2 mb-4">
                 <img class="img-fluid" src="https://www.okpol.pl/wp-content/uploads/2018/03/6.2.jpg"
                      alt="Okna cennikowe OKPOL">
-                <a>
+                <a href="${mainUrl}cennik">
                     <div class="mask rgba-white-slight"></div>
                 </a>
             </div>
 
             <!-- Category -->
-            <a href="https://www.okpol.pl/wp-content/uploads/katalogi/PL/KATALOG_OKIEN_DACHOWYCH.pdf"
+            <a href="${mainUrl}cennik"
                class="deep-orange-text">
                 <h6 class="font-weight-bold mb-3"><i class="fas fa-graduation-cap pr-2"></i>Okna cennikowe</h6>
             </a>
@@ -72,13 +73,13 @@
             <div class="view overlay rounded z-depth-2 mb-4">
                 <img class="img-fluid" src="https://www.okpol.pl/wp-content/uploads/2018/03/9.2.jpg"
                      alt="Zaloguj do systemu">
-                <a>
+                <a href="${mainUrl}login">
                     <div class="mask rgba-white-slight"></div>
                 </a>
             </div>
 
             <!-- Category -->
-            <a href="#!" class="blue-text">
+            <a href="${mainUrl}login" class="blue-text">
                 <h6 class="font-weight-bold mb-3"><i class="fas fa-fire pr-2"></i>Logowanie</h6>
             </a>
             <!-- Excerpt -->
