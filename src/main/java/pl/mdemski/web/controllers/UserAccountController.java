@@ -36,7 +36,7 @@ public class UserAccountController {
         if (!(user.getEmail().equals(userService.findById(id).getEmail()))) {
             return "index";
         } else {
-            return "my-account";
+            return "myAccount";
         }
     }
 
