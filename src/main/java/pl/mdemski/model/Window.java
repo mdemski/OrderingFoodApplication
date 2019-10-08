@@ -3,6 +3,7 @@ package pl.mdemski.model;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Objects;
@@ -33,11 +34,11 @@ public class Window extends AbstractEntity {
     private LocalDateTime created;
     private String description;
     private byte[] picture;
-    private double price;
+    private BigDecimal price;
     private boolean priceList;
     private String name;
 
-    public Window(MountingAngle mountingAngle, Material material, OpeningType openingType, int height, int width, GlazingType glazingType, MaterialColor materialColor, Handle handle, Flashing flashing, Ventilator ventilator, User user, LocalDateTime created, String description, byte[] picture, double price, boolean priceList, String name) {
+    public Window(MountingAngle mountingAngle, Material material, OpeningType openingType, int height, int width, GlazingType glazingType, MaterialColor materialColor, Handle handle, Flashing flashing, Ventilator ventilator, User user, LocalDateTime created, String description, byte[] picture, BigDecimal price, boolean priceList, String name) {
         this.mountingAngle = mountingAngle;
         this.material = material;
         this.openingType = openingType;
@@ -172,11 +173,11 @@ public class Window extends AbstractEntity {
         this.picture = picture;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -204,7 +205,6 @@ public class Window extends AbstractEntity {
         Window window = (Window) o;
         return height == window.height &&
                 width == window.width &&
-                Double.compare(window.price, price) == 0 &&
                 priceList == window.priceList &&
                 Objects.equals(mountingAngle, window.mountingAngle) &&
                 Objects.equals(material, window.material) &&
@@ -218,6 +218,7 @@ public class Window extends AbstractEntity {
                 Objects.equals(created, window.created) &&
                 Objects.equals(description, window.description) &&
                 Arrays.equals(picture, window.picture) &&
+                Objects.equals(price, window.price) &&
                 Objects.equals(name, window.name);
     }
 
