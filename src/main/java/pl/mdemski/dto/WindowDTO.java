@@ -21,6 +21,7 @@ public class WindowDTO {
     private Long flashingNameId;
     private Long ventilatorId;
     private Long creatorId;
+    private String name;
 
     public Long getId() {
         return id;
@@ -116,5 +117,13 @@ public class WindowDTO {
 
     public void setCreatorId(Long creatorId) {
         this.creatorId = creatorId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
