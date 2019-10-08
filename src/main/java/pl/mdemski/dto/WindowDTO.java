@@ -2,6 +2,7 @@ package pl.mdemski.dto;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.math.BigDecimal;
 
 public class WindowDTO {
     private Long id;
@@ -22,6 +23,9 @@ public class WindowDTO {
     private Long creatorId;
     private String name;
     private String description;
+    private byte[] picture;
+    private BigDecimal price;
+    private boolean priceList;
 
     public Long getId() {
         return id;
@@ -133,5 +137,29 @@ public class WindowDTO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public boolean isPriceList() {
+        return priceList;
+    }
+
+    public void setPriceList(boolean priceList) {
+        this.priceList = priceList;
     }
 }
