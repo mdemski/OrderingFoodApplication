@@ -35,8 +35,9 @@ public class Window extends AbstractEntity {
     private byte[] picture;
     private double price;
     private boolean priceList;
+    private String name;
 
-    public Window(MountingAngle mountingAngle, Material material, OpeningType openingType, int height, int width, GlazingType glazingType, MaterialColor materialColor, Handle handle, Flashing flashing, Ventilator ventilator, User user, LocalDateTime created, String description, byte[] picture, double price, boolean priceList) {
+    public Window(MountingAngle mountingAngle, Material material, OpeningType openingType, int height, int width, GlazingType glazingType, MaterialColor materialColor, Handle handle, Flashing flashing, Ventilator ventilator, User user, LocalDateTime created, String description, byte[] picture, double price, boolean priceList, String name) {
         this.mountingAngle = mountingAngle;
         this.material = material;
         this.openingType = openingType;
@@ -53,6 +54,7 @@ public class Window extends AbstractEntity {
         this.picture = picture;
         this.price = price;
         this.priceList = priceList;
+        this.name = name;
     }
 
     public Window() {
@@ -186,6 +188,14 @@ public class Window extends AbstractEntity {
         this.priceList = priceList;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -207,12 +217,13 @@ public class Window extends AbstractEntity {
                 Objects.equals(user, window.user) &&
                 Objects.equals(created, window.created) &&
                 Objects.equals(description, window.description) &&
-                Arrays.equals(picture, window.picture);
+                Arrays.equals(picture, window.picture) &&
+                Objects.equals(name, window.name);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(super.hashCode(), mountingAngle, material, openingType, height, width, glazingType, materialColor, handle, flashing, ventilator, user, created, description, price, priceList);
+        int result = Objects.hash(super.hashCode(), mountingAngle, material, openingType, height, width, glazingType, materialColor, handle, flashing, ventilator, user, created, description, price, priceList, name);
         result = 31 * result + Arrays.hashCode(picture);
         return result;
     }
