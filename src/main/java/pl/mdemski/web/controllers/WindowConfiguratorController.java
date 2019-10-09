@@ -222,7 +222,7 @@ public class WindowConfiguratorController {
         Long userId = user.getId();
         windowDTO.setCreatorId(userId);
         Window window = windowService.editWindowConfiguration(windowDTO);
-        return "redirect:/moje-konto/"+ userId + "/moje-konfiguracje";
+        return "redirect:/moje-konto/" + userId + "/moje-konfiguracje";
     }
 
 }
