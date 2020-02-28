@@ -20,6 +20,7 @@ public class Company extends AbstractEntity {
     @OneToMany
     private List<User> users;
 
+
     public Company(String name, String city, String address, String postCode, String companyNip, String contactFirstName, String contactLastName, List<User> users) {
         this.name = name;
         this.city = city;
